@@ -8,7 +8,7 @@
 
 ## Localhost serving of a model using `podman` or `docker` with CPU only.
 
-Instructions: [cpu_only_podmandocker.md](cpu_only_podmandocker.md)
+Instructions: [docker-podman-cpu-only-localhost.md](docker-podman-cpu-only-localhost.md)
 
  - You can use either `podman` or `docker`.
 

@@ -5,4 +5,6 @@
 1. Build container image
 `podman build -t granite-2b:latest --platform linux/amd64 ./kserve/modelcars_container/granite-3.1-2b-instruct`
 
-2. Push to your remote image registry
+2. Push to your remote image registry.
+
+Example: https://hub.docker.com/repository/docker/moosestack/ubi-kserve-modelcar-granite-3.1-2b-instruct/tags
