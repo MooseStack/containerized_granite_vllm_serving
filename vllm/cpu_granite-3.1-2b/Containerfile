@@ -1,0 +1,18 @@
+## Stage 1: Base Image with Granite 2b Model Files
+FROM docker.io/moosestack/ubi-kserve-modelcar-granite-3.1-2b-instruct:latest AS modelcar
+
+##########################################################
+
+## Stage 2: vLLM API Server
+FROM public.ecr.aws/q9t5s3a7/vllm-cpu-release-repo:v0.8.5
+
+# Copy the model files from the modelcar into the vLLM container
+COPY --from=modelcar /models /models
+
+# Copy the entrypoint script into the container
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+EXPOSE 8000
+
+ENTRYPOINT [ "/entrypoint.sh" ]
