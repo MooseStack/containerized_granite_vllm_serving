@@ -1,10 +1,10 @@
 ## Stage 1: Base Image with Granite 2b Model Files
-FROM docker.io/moosestack/ubi-kserve-modelcar-granite-3.1-2b-instruct:latest AS modelcar
+FROM docker.io/moosestack/ubi-modelcar-granite-3.3-2b-instruct:latest AS modelcar
 
 ##########################################################
 
 ## Stage 2: vLLM API Server
-FROM public.ecr.aws/q9t5s3a7/vllm-cpu-release-repo:v0.9.0
+FROM docker.io/intel/vllm:0.8.0-xpu
 
 # Copy the model files from the modelcar into the vLLM container
 COPY --from=modelcar /models /models

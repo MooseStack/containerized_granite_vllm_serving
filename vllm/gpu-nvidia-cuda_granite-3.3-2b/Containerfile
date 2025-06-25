@@ -1,0 +1,24 @@
+## Stage 1: Base Image with Granite 2b Model Files
+FROM docker.io/moosestack/ubi-modelcar-granite-3.3-2b-instruct:latest AS modelcar
+
+##########################################################
+
+## Stage 2: vLLM API Server
+FROM registry.access.redhat.com/ubi9/python-311:latest as base
+
+
+ENV VLLM_TARGET_DEVICE=cuda
+ENV VLLM_LOGGING_LEVEL=DEBUG
+
+# vllm binary built from Nvidia CUDA 12.8 - https://docs.vllm.ai/en/stable/getting_started/installation/gpu.html#nvidia-cuda_3
+RUN pip install nvml vllm --extra-index-url https://download.pytorch.org/whl/cu128
+
+#Copy the model files from the modelcar into the vLLM container
+COPY --from=modelcar /models /models
+
+# Copy the entrypoint script into the container
+COPY --chmod=755 entrypoint.sh /entrypoint.sh
+
+EXPOSE 8000
+
+ENTRYPOINT [ "/entrypoint.sh" ]

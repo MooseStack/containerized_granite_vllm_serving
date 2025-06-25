@@ -1,5 +1,5 @@
 ## Stage 1: Base Image with Granite 2b Model Files
-FROM docker.io/moosestack/ubi-kserve-modelcar-granite-3.1-2b-instruct:latest AS modelcar
+FROM docker.io/moosestack/ubi-modelcar-granite-3.3-2b-instruct:latest AS modelcar
 
 ##########################################################
 
