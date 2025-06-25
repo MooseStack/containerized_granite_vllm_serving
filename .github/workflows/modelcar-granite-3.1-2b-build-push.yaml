@@ -1,11 +1,11 @@
-name: Kserve Granite2b Modelcar Container Build and Push
+name: Granite-3.1-2b Modelcar Container Build and Push
 
 on:
   push:
     branches:
       - main
     paths:
-      - kserve/modelcars_container/granite-3.1-2b-instruct/**
+      - modelcars/granite-3.1-2b-instruct/**
 
 jobs:
   build-and-push:
@@ -27,7 +27,7 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v4
         with:
-          context: ./kserve/modelcars_container/granite-3.1-2b-instruct
-          file: ./kserve/modelcars_container/granite-3.1-2b-instruct/Containerfile
+          context: ./modelcars/granite-3.1-2b-instruct
+          file: ./modelcars/granite-3.1-2b-instruct/Containerfile
           push: true
           tags: moosestack/ubi-kserve-modelcar-granite-3.1-2b-instruct:latest
