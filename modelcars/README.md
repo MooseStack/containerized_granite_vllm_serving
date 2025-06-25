@@ -10,10 +10,22 @@ Build a redistributable container image that downloads an AI model to `/models` 
 
 ##  [Huggingface: ibm-granite/granite-3.1-2b-instruct](https://huggingface.co/ibm-granite/granite-3.1-2b-instruct)
 1. Build container image
-`podman build -t granite-2b:latest --platform linux/amd64 ./modelcars/granite-3.1-2b-instruct`
+`podman build -t granite-3.1-2b-instruct:latest --platform linux/amd64 ./modelcars -f ./modelcars/Containerfile_granite-3.1-2b-instruct`
 
 2. Push to your remote image registry.
 
 Example: 
 - https://hub.docker.com/r/moosestack/ubi-kserve-modelcar-granite-3.1-2b-instruct/tags
 - `docker.io/moosestack/ubi-kserve-modelcar-granite-3.1-2b-instruct:latest`
+
+
+
+##  [Huggingface: ibm-granite/granite-3.3-2b-instruct](https://huggingface.co/ibm-granite/granite-3.3-2b-instruct)
+1. Build container image
+`podman build -t granite-3.3-2b-instruct:latest --platform linux/amd64 ./modelcars -f ./modelcars/Containerfile_granite-3.3-2b-instruct` 
+
+2. Push to your remote image registry.
+
+Example: 
+- https://hub.docker.com/r/moosestack/ubi-modelcar-granite-3.3-2b-instruct/tags
+- `docker.io/moosestack/ubi-modelcar-granite-3.3-2b-instruct:latest`

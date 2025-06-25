@@ -1,10 +1,14 @@
 FROM registry.access.redhat.com/ubi9/python-311:latest as base
 
+## need root since creating /models
 USER root
+
+# Model repo name from Hugging Face are downloaded to /models
+# https://huggingface.co/models
+ENV HUGGINGFACE_MODEL_REPO=ibm-granite/granite-3.3-2b-instruct
 
 RUN pip install huggingface-hub
 
-# Download the model file from hugging face
 COPY download_model.py .
 
 RUN python download_model.py 

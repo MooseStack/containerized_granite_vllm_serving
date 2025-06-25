@@ -23,7 +23,12 @@
 ## [./modelcars](modelcars) - Modelcars (AI Model stored inside Container)
 
 - https://kserve.github.io/website/latest/modelserving/storage/oci/
-- [How to create Modelcars - README.md](kserve/README.md)
+- How to create Modelcars: [modelcars/README.md](modelcars/README.md)
+
+Prebuilt Modelcars:
+- `docker.io/moosestack/ubi-modelcar-granite-3.3-2b-instruct:latest`
+- `docker.io/moosestack/ubi-kserve-modelcar-granite-3.1-2b-instruct:latest`
+
 
 ## [./vllm](vllm) - LLM inference and serving
 - [How to create vLLM ready container with Granite - README.md](vllm/cpu_granite-3.1-2b/README.md)
